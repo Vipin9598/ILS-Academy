@@ -1,0 +1,230 @@
+/* write your css here */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+   scrollbar-width: thin;
+   overflow-x: hidden;
+   scrollbar-color: richblack-900 richblack-900;
+ }
+ 
+ /* For WebKit (Safari, Chrome) */
+ body::-webkit-scrollbar {
+   width: 6px;
+ }
+ 
+ body::-webkit-scrollbar-thumb {
+   background: transparent;
+ }
+ 
+ body::-webkit-scrollbar-track {
+   background: transparent;
+ }
+ 
+
+
+.homepage_bg{
+    background-image: url("../src/assets/Images/bghome.svg");
+}
+/* 
+.active{
+    color:red
+} */
+
+
+.spinner {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    border-radius: 50%;
+    -webkit-mask: radial-gradient(farthest-side,#0000 40%,#474bff 41%);
+    background: linear-gradient(0deg ,rgba(71,75,255,0.5) 50%,rgba(71,75,255,1) 0) center/4.5px 100%,
+         linear-gradient(90deg,rgba(71,75,255,0.25) 50%,rgba(71,75,255,0.75) 0) center/100% 4.5px;
+    background-repeat: no-repeat;
+    animation: spinner-d3o0rx 1s infinite steps(12);
+ }
+ 
+ .spinner::before,
+ .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: inherit;
+    opacity: 0.915;
+    transform: rotate(30deg);
+ }
+ 
+ .spinner::after {
+    opacity: 0.83;
+    transform: rotate(60deg);
+ }
+
+ @keyframes spinner-d3o0rx {
+    100% {
+       transform: rotate(1turn);
+    }
+ }
+
+@media screen and (max-width:400px) {
+   .contactFormName{
+      flex-direction: column;
+      gap: 15px;
+   }
+   .contactNameWidth{
+      width: 100% !important;
+   }
+   .optionwidth{
+      width: 200px !important;
+   }
+   .editProfilegrid{
+      grid-column-start: span 2 ;
+      grid-column-end: span 3;
+   }
+   .leftClassSideModal{
+      left: 8% ;
+   }
+
+
+}
+@media screen and (max-width:320px) {
+   .calenderText{
+      font-size: 13px;
+   }
+}
+
+
+
+@media screen and (max-width: 500px) {
+  
+   .signUpPassword {
+      flex-direction: column;
+   }
+   .signUpPassword label {
+      width: 90%;
+   }
+   .signUpName {
+      flex-direction: column;
+   }
+   .signUpName label {
+      width: 90%;
+   }
+   .learningGrid{
+      display: grid;
+      grid-column: 1 !important;
+   }
+   .cartflex{
+      flex-direction: column;
+   }
+   .cartInner{
+      display: flex;
+      flex-direction: row-reverse ;
+   
+   
+   }
+   .reviewModalLecture{
+      left:10% !important;
+   }
+   .contactGrid3{
+      grid-column-start: span 2 ;
+      grid-column-end: span 3;
+   }
+   .contactGrid4{
+      grid-column-start: span 2 ;
+      grid-column-end: span 3;
+   }
+   .logoimg{
+      display: none;
+   }
+   .logotext{
+      display: block;
+   }
+
+}
+
+@media screen and (min-width: 765px) and (max-width: 1220px) {
+   .signUpPassword {
+      flex-direction: column;
+   }
+   .signUpPassword label {
+      width: 90%;
+   }
+}
+
+@media screen and (min-width: 500px) and (max-width: 770px) {
+   .learningGrid{
+      grid-column: 2 !important;
+   }
+   
+}
+
+@media screen and (min-width:500px){
+   .catalogCard{
+      width: 350px;
+   }
+   .cartInner{
+      display: flex;
+      flex-direction: column;
+   }
+   .logotext{
+      display: none !important;
+   }
+}
+
+@media screen and (min-width:400px) and (max-width:500px){
+   .catalogCard{
+      width: 300px;
+   }
+   .imgCourse{
+      height: 180px;
+   }
+   .deleteAccountModal{
+      right: 25% !important;
+   }
+   .leftClassSideModal{
+      left: 15% ;
+   }
+}
+@media screen and (max-width:640px) and (min-width:500px) {
+   .deleteAccountModal{
+      right: 25% !important;
+   }
+   .leftClassSideModal{
+      left: 25% ;
+   }
+}
+
+
+@media screen and (max-width:400px) {
+   .catalogCard{
+      width: 240px;
+   }
+   .courseBuyModal{
+      flex-direction: column;
+   }
+   .textStep{
+      font-size: 12px !important;
+      min-width:60px !important;
+   }
+   .reviewWidth{
+      width: 200px;
+      height:160px;
+   }
+}
+@media screen and (max-width:1024px) {
+   .courseBuyCard{
+      top: 0rem;
+      right: 3rem;
+   }
+}
+@media screen and (max-width:350px) and (min-width:300px) {
+   .deleteAccountModal{
+      right: 10% !important;
+   }
+}
+
+@media screen and (max-width:400px) and (min-width:350px) {
+   .deleteAccountModal{
+      right: 15% !important;
+   }
+}

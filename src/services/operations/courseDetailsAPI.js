@@ -5,6 +5,7 @@ import { apiConnector } from "../apiconnector"
 import { courseEndpoints } from "../apis"
 import { setLoading } from "../../slices/authSlice"
 
+import { setUser } from "../../slices/profileSlice"
 
 const {
   COURSE_DETAILS_API,
@@ -161,7 +162,6 @@ export const createSection = async (data, token,dispatch) => {
       throw new Error("Could Not Create Section")
     }
     toast.success("Course Section Created")
-    console.log("response",response)
     result = response?.data?.data
   } catch (error) {
     console.log("CREATE SECTION API ERROR............", error)
@@ -176,7 +176,6 @@ export const createSection = async (data, token,dispatch) => {
 export const createSubSection = async (data, token,dispatch) => {
 
   let result = null
-  console.log("Formdatghfghda",...data)
   const toastId = toast.loading("Loading...")
   dispatch(setLoading(true))
   try {
@@ -270,7 +269,6 @@ export const deleteSection = async (data, token,dispatch) => {
   }
   toast.dismiss(toastId)
   dispatch(setLoading(false))
-  console.log("result api response m ....",result)
   return result
 }
 // delete a subsection
@@ -332,7 +330,7 @@ export const deleteCourse = async (data, token,dispatch) => {
 
   const toastId = toast.loading("Loading...")
   dispatch(setLoading(true))
-  console.log("Course Id    ....",data)
+
   try {
     const response = await apiConnector("DELETE", DELETE_COURSE_API, data, {
       Authorization: `Bearer ${token}`,
@@ -387,7 +385,6 @@ export const getFullDetailsOfCourse = async (courseId, token,dispatch) => {
 export const markLectureAsComplete = async (data, token,dispatch) => {
 
   let result = null
-  console.log("mark complete data", data)
   const toastId = toast.loading("Loading...")
   dispatch(setLoading(true))
   try {
@@ -403,6 +400,7 @@ export const markLectureAsComplete = async (data, token,dispatch) => {
       throw new Error(response.data.error)
     }
     toast.success("Lecture Completed")
+    dispatch(setUser(response.data.data))
     result = true
   } catch (error) {
     console.log("MARK_LECTURE_AS_COMPLETE_API API ERROR............", error)

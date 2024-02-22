@@ -3,6 +3,7 @@ const Section = require("../models/section")
 const SubSection = require("../models/subsection")
 const CourseProgress = require("../models/courseprogress")
 const Course = require("../models/course")
+const User = require("../models/user")
 
 exports.updateCourseProgress = async (req, res) => {
   console.log("ander aa gye h lecture complete krne")
@@ -42,8 +43,11 @@ exports.updateCourseProgress = async (req, res) => {
 
     // Save the updated course progress
     await courseProgress.save()
+    const user = await User.findOne({
+      _id: userId,
+    }).populate('additionalDetails').populate("courseProgress").exec();
 
-    return res.status(200).json({ message: "Course progress updated" })
+    return res.status(200).json({ message: "Course progress updated" ,data:user})
   } catch (error) {
     console.error(error)
     return res.status(500).json({ error: "Internal server error" })

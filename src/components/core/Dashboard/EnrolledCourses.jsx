@@ -57,6 +57,7 @@ const EnrolledCourses = () => {
          const completedLecture = user.courseProgress[courseProgressIndex]?.completedVideos.length
         course.progressPercentage = (completedLecture/totalLecture)*100;
         course.totalDuration = TimeFormatter(totalTime);
+        console.log("dekhta hoon sare courses ,,,,,,",course);
         
 
       });

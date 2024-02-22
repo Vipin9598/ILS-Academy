@@ -126,6 +126,7 @@ const VideoDetails = () => {
   };
 
   const handleLectureCompletion = async () => {
+    console.log("AA gye mark as completed vale function m ")
     setSpinnerLoading(true);
     const res = await markLectureAsComplete(
       { courseId: courseId, subSectionId: subSectionId },
@@ -180,12 +181,12 @@ const VideoDetails = () => {
                 {!completedLectures.includes(subSectionId) && (
                   <Iconbtn
                     text={spinnerLoading ? "Loading..." : "Mark As Completed"}
-                    onClick={() => handleLectureCompletion()}
+                    onclick={() => handleLectureCompletion()}
                   />
                 )}
 
                 <Iconbtn
-                  onClick={() => {
+                  onclick={() => {
                     if (playerRef?.current) {
                       playerRef?.current?.seek(0);
                       setVideoEnded(false);

@@ -94,16 +94,17 @@ export function login(email, password, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
     dispatch(setLoading(true))
+    let response;
     try {
-      const response = await apiConnector("POST", LOGIN_API, {
+       response = await apiConnector("POST", LOGIN_API, {
         email,
         password,
       })
 
       console.log("LOGIN API RESPONSE............", response)
 
-      if (!response.data.success) {
-        throw new Error(response.data.message)
+      if (!response.data.success) {        
+        throw new Error(response.data.message)    
       }
       toast.success("Login Successful")
       dispatch(setToken(response.data.token))
@@ -119,7 +120,7 @@ export function login(email, password, navigate) {
       navigate("/dashboard/my-profile")
     } catch (error) {
       console.log("LOGIN API ERROR............", error)
-      toast.error("Login Failed")
+      toast.error(response.data.message)
     }
     dispatch(setLoading(false))
     toast.dismiss(toastId)

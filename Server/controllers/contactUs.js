@@ -8,7 +8,7 @@ exports.contactUsController = async (req, res) => {
   try {
     const emailRes = await mailSender(
       process.env.MAIL_USER,
-      "SomeOne wants to connect through StudyNotion",
+      "SomeOne wants to connect through MEDITECH",
       `My Name Is ${firstName} ${lastName} /n
       contactDetails : email:${email} or Phone Number : ${countryCode} ${phoneNumber} \n
       message: ${message}

@@ -1,7 +1,5 @@
 const cloudinary  = require("cloudinary").v2
 
-
-
 exports.uploadtoCloudinary = async(file,folder,height,quality) =>{
     
     const options = {folder}

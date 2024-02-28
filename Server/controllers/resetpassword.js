@@ -28,7 +28,7 @@ exports.resetPasswordToken = async(req,res) => {
         
         const url = `http://localhost:3000/update-password/${token}`
         await mailSender(email,
-            "Password Reset Link From Study-Notion",
+            "Password Reset Link From MEDITECH",
             `Link to reset the  Password : ${url}`)
         
         return res.status(200).json({

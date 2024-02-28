@@ -17,8 +17,6 @@ import ConfirmationModal from "../core/Dashboard/ConfirmationModal";
 const NavBar = () => {
   const { token,isBlurred,loading } = useSelector((state) => state.auth);
 
-
-
   const location = useLocation();
   const [confirmationModal, setConfirmationModal] = useState(null);
   // const [loading,setLoading] = useState(false)
@@ -57,7 +55,7 @@ const NavBar = () => {
             {/* <div className="lg:w-[150px] md:w-[120px] w-[150px] h-[50px]   ">
             <img src={logo} className="object-cover h-[50px] w-full logoimg" alt="Study_Notion"  />
             </div> */}
-            <p className="text-white text-xl hover:text-richblack-200">ILS Academy</p>
+            <p className="text-white text-xl hover:text-richblack-200">MEDITECH</p>
         </Link>
 
         <nav>

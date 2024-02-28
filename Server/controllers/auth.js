@@ -192,7 +192,7 @@ exports.LogIn= async(req,res)=>{
             }
             console.log
             const token=  JWT.sign(payload,process.env.JWT_SECRET,{
-                expiresIn:"96h"
+                expiresIn:"100s"
             })
             user.token=token
             user.password=undefined
@@ -200,7 +200,7 @@ exports.LogIn= async(req,res)=>{
 
             // create cookie
             const options={
-                expiresIn : new Date(Date.now()+ 4*24*60*60*1000),
+                expiresIn : new Date(Date.now()+ 60*1000),
                 httpOnly : true
             }
 
@@ -224,7 +224,7 @@ exports.LogIn= async(req,res)=>{
         console.log("error occur during login : ",error)
         return res.status(404).json({
             success:false,
-            message:"Try Again"
+            message:"Try After Some Time"
         })
     }
 }
